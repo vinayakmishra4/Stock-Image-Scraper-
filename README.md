@@ -1,10 +1,14 @@
+Got it. Here is the polished `README.md` with the code walkthrough entirely removed. You can copy and paste this directly into your repository!
+
+---
+
 # 📸 Stock Image Scraper
 
 A powerful, beginner-friendly Python web scraping automation project designed to extract stock images and metadata from dynamically loaded websites. By combining **Selenium** for browser automation with **BeautifulSoup** for HTML parsing, this tool effortlessly bypasses "infinite scroll" mechanics to capture a complete dataset.
 
-Easily collect **Image URLs, Tags, Likes, and Comments**, and export everything into a clean, ready-to-use CSV dataset.
+Easily collect Image URLs, Tags, Likes, and Comments, download the physical images to your local machine, and export everything into a clean, ready-to-use **Excel** dataset.
 
-🔗 **[View the Code Repository Here](https://www.google.com/search?q=https://github.com/vinayakmishra4/Stock-Image-Scraper-)**
+[🔗 View the Code Repository Here](https://www.google.com/search?q=%23) *(Replace with your actual repo link)*
 
 ---
 
@@ -12,9 +16,10 @@ Easily collect **Image URLs, Tags, Likes, and Comments**, and export everything 
 
 * **Bypasses Infinite Scrolling:** Uses Selenium JavaScript execution to continuously load new dynamic content.
 * **Comprehensive Data Extraction:** Scrapes direct image URLs, descriptive tags, likes, and comment counts.
+* **Automated Image Downloading:** Automatically fetches and saves the high-resolution physical image files to a local `downloaded_images` folder.
 * **Automated Data Cleaning:** Uses Pandas to structure the raw HTML data into a tabular format.
-* **Ready-to-Use Dataset:** Automatically exports the final scraped data to a `.csv` file.
-* **Visual Progress Tracking:** Implements `tqdm` so you can monitor the scraping progress in real-time.
+* **Ready-to-Use Dataset:** Automatically exports the final scraped data to a `.xlsx` Excel file, including the local file paths of the downloaded images.
+* **Visual Progress Tracking:** Implements `tqdm` so you can monitor the scraping and downloading progress in real-time.
 
 ---
 
@@ -23,8 +28,8 @@ Easily collect **Image URLs, Tags, Likes, and Comments**, and export everything 
 * **Python** — Core programming language
 * **Selenium** — Automates the browser to handle dynamic JS loading
 * **BeautifulSoup4** — Parses the DOM to extract specific HTML tags
-* **Pandas** — Structures and exports the data
-* **Requests** — Handles HTTP requests
+* **Pandas & Openpyxl** — Structures and exports the data to Excel
+* **Requests & Urllib** — Handles HTTP requests and image downloading
 * **tqdm** — Displays execution progress bars
 
 ---
@@ -33,7 +38,7 @@ Easily collect **Image URLs, Tags, Likes, and Comments**, and export everything 
 
 This project is built to scrape data from the following demo site:
 
-```bash
+```text
 https://stock-pictures.netlify.app
 
 ```
@@ -55,7 +60,7 @@ cd Stock-Image-Scraper-
 Ensure you have Python installed, then run the following command to install the required libraries:
 
 ```bash
-pip install requests pandas tqdm selenium beautifulsoup4 chromedriver-binary
+pip install requests pandas tqdm selenium beautifulsoup4 chromedriver-binary openpyxl
 
 ```
 
@@ -63,25 +68,23 @@ pip install requests pandas tqdm selenium beautifulsoup4 chromedriver-binary
 
 ## ▶️ How to Run
 
-This project's main logic is contained within a Jupyter Notebook.
+This project's main logic is contained within a Jupyter Notebook, but can also be run as a standard Python script.
 
 **Option A: Using Jupyter Notebook (Recommended)**
 
 1. Open your terminal in the project directory.
 2. Launch Jupyter:
 ```bash
-
-```
-
-
-
 jupyter notebook
 
 ```
-3. Open `stockimagescrapper.ipynb` and run the cells sequentially. 
+
+
+3. Open `stockimagescrapper.ipynb` and run the cells sequentially.
 
 **Option B: Running as a Python Script**
 If you prefer a terminal-based workflow, convert the notebook to a standard Python script and run it:
+
 ```bash
 python scraper.py
 
@@ -90,15 +93,16 @@ python scraper.py
 **The scraper will automatically:**
 
 1. Open a Chrome browser window.
-2. Scroll to the bottom of the page dynamically until all images load.
-3. Parse the HTML and extract the metadata.
-4. Generate a `.csv` file in your directory containing all the results.
+2. Scrape the DOM to extract image metadata (Tags, Likes, Comments, URLs).
+3. Generate a `stock_images_data.xlsx` file in your directory.
+4. Download all images into a local folder.
+5. Update the Excel file with the local file paths of the downloaded images.
 
 ---
 
 ## 📊 Output Format
 
-The generated `output.csv` dataset contains the following structured fields:
+The generated `stock_images_data.xlsx` dataset contains the following structured fields:
 
 | Field | Description |
 | --- | --- |
@@ -106,27 +110,17 @@ The generated `output.csv` dataset contains the following structured fields:
 | **🏷️ Tags** | The category or descriptive tags attached to the image |
 | **❤️ Likes** | Total number of likes the image received |
 | **💬 Comments** | Total number of comments on the image |
-
----
-
-## 🚀 Future Improvements
-
-We are continuously looking to enhance this scraper. Planned updates include:
-
-* [ ] **Automatic Image Downloading:** Fetching the physical image files locally using `requests`.
-* [ ] **Multi-threaded Scraping:** Implementing concurrent execution for significantly faster data extraction.
-* [ ] **Headless Browser Mode:** Running Selenium without a GUI to save system resources.
-* [ ] **Database Integration:** Exporting directly to MongoDB or MySQL.
+| **📁 Local Image Path** | The local directory path where the scraped image was saved |
 
 ---
 
 ## 📚 What You’ll Learn
 
-Exploring this codebase is a great way to understand:
+Exploring this repository is a great way to understand:
 
 * **Web Scraping Fundamentals:** Navigating DOM structures and CSS selectors.
 * **Browser Automation:** Using Selenium WebDriver to simulate human behavior.
-* **Handling Dynamic Content:** Overcoming JavaScript-heavy sites that block traditional requests.
+* **File Handling:** Automating local directory creation and binary file saving.
 * **Data Engineering:** Structuring raw web data into clean, analytical datasets.
 
 ---
@@ -139,8 +133,6 @@ This project is developed for **educational purposes only**. Please respect the 
 
 ## 📄 License
 
-This project is licensed under the **MIT License**.
+This project is licensed under the MIT License.
 
----
-
-*If you found this project useful, consider giving it a ⭐ on [GitHub](https://www.google.com/search?q=https://github.com/vinayakmishra4/Stock-Image-Scraper-).*
+*If you found this project useful, consider giving it a ⭐ on GitHub!*
